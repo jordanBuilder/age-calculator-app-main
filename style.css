@@ -1,0 +1,135 @@
+/*he root selector is like a global selector*/
+
+/*the root selector needs double dashes for the variables and no spaces between the variables's names*/
+
+/*
+Les propriétés personnalisées CSS (custom properties en anglais, aussi parfois appelés variables CSS) sont des entités définies par les développeurs ou les utilisateurs d'une page Web, contenant des valeurs spécifiques utilisables à travers le document. Elles sont initialisées avec des propriétés personnalisées (par exemple --main-color: black;) et accessibles en utilisant la notation spécifique var() (par exemple : color: var(--main-color);).
+
+Les propriétés personnalisées permettent de stocker une valeur à un endroit puis de réutiliser cette valeur (on factorise ainsi le code).
+je viens d'apprendre un nouveau truc je vais devenir plus fort làà awo
+*/
+
+:root{
+    --White: hsl(0, 0%, 100%);
+    --Off-white: hsl(0, 0%, 94%);
+    --Light-grey: hsl(0, 0%, 86%);
+    --Smokey-grey: hsl(0, 1%, 44%);
+    --Off-black: hsl(0, 0%, 8%);
+    --Purple: hsl(259, 100%, 65%);
+    --Light-red: hsl(0, 100%, 67%);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+*{
+    font-family: poppins !important;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--Off-white);
+}
+
+.container{
+    background-color: var(--White);
+    width: 420px;
+    max-width: 80%;
+    padding:30px;
+    position: relative;
+    border-bottom-right-radius: 150px;
+    
+}
+
+input{
+    width: 70px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--Off-white);
+    outline: none;
+}
+
+input:focus{
+    border: 2px solid var(--Purple);
+}
+
+small{
+    color:red;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform:capitalize;   
+}
+
+.submit-btn{
+    width: 70px;
+    height: 70px;
+    padding: 20px;
+    display: flex;
+    background-color: var(--Purple);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 35px;
+    /*on va retirer le bouton du flux de positionnement normal du document*/
+    position: absolute;
+    /*avec les proprietes top right et tout ça il se positionnera PAR RAPPORT à son parent dans ce cas le div container*/
+    right: 30px;
+    top: 60px;
+    cursor: pointer;
+}
+
+.output span{
+    font-size: 2.75rem;
+    color: var(--Purple);
+    font-style: italic;
+
+}
+.submit-btn:hover{
+    background-color: black;
+    transition: 400ms ease;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.input-flex{
+    display: flex;
+    border-bottom: 2px solid var(--Off-white);
+    margin-bottom: 20px;
+}
+
+.attribution{
+    margin-top: 300px;
+}
+
+@media(max-width:768px){
+    input{
+        width: 80%;
+
+    }
+
+    .output span{
+        font-size: 1.75rem;
+    }
+
+    .submit-btn{
+        width: 40px;
+        height: 40px;
+        right: 40%;
+        top: 90px;
+    }
+
+    .submit-btn img {
+        transform: scale();
+    }
+}
